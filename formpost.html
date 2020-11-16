@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Form tester</title>
+		<link rel="stylesheet" type="text/css" href="reset.css" />
+		<link rel="stylesheet" type="text/css" href="formpost.css" />
+	</head>
+	<body>
+		<div id="content">
+			<header>
+				<h1>POST/GET form tester</h1>
+				<form id="form" method="post" action="formpost.html" target="_formpost-response">
+					<div id="form-params"></div>
+				</form>
+
+				<div class="item">
+					<label for="name">Name</label>
+					<input id="name" placeholder="Name of your form (for saving)" />
+				</div>
+				<div class="item">
+					<label for="method">Method</label>
+					<select id="method">
+						<option>POST</option>
+						<option>GET</option>
+					</select>
+				</div>
+				<div class="item">
+					<label for="url">URL</label>
+					<input id="url" placeholder="URL to send the form to" />
+				</div>
+				<div class="item form-buttons">
+					<button type="submit" id="submit">Submit form</button>
+					<button id="save">Save form</button>
+					<button id="load">Load form</button>
+					<button id="reset">Reset form</button>
+				</div>
+				<div class="item">
+					<button type="button" class="add-param" id="add-param">Add parameter</button>
+				</div>
+			</header>
+			<main>
+				<fieldset class="hidden" id="params-wrapper">
+					<legend>Parameters</legend>
+					<div class="header">
+						<div class="coll">Key</div>
+						<div class="coll">Value</div>
+					</div>
+					<div id="params"></div>
+				</fieldset>
+			</main>
+		</div>
+
+		<dialog id="load-dialog">
+			<header>
+				Load a form
+			</header>
+			<section class="body">
+				<ul></ul>
+			</section>
+			<footer>
+				<button id="load-dialog-cancel">Cancel</button>
+			</footer>
+		</dialog>
+
+		<script src="formpost.js"></script>
+	</body>
+</html>

